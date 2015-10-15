@@ -1,0 +1,19 @@
+{
+  "name": "generator-angular-schema-form-add-on",
+  "version": "0.1.0",
+  "description": "",
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "camelcase": "^1.2.1",
+    "chalk": "^1.1.1",
+    "fs-promise": "^0.3.1",
+    "fs-readdir-recursive": "^0.1.2",
+    "q": "^1.4.1",
+    "yeoman-generator": "^0.20.3"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "<%= paramName %>",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {}
+}

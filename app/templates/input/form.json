@@ -1,0 +1,7 @@
+[
+  {
+    "type": "myaddon",
+    "key": "name",
+    "myOwnProperty": "Hello world!"
+  }
+]
