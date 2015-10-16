@@ -25,7 +25,7 @@ module.exports = generators.Base.extend({
   },
 
   prompting: function() {
-    /* We tell yeoman we don't want to continue until we run our callback done().
+    /* We tell yeoman we don't want to continue until we run our done().
      */
     var done = this.async();
 
@@ -68,7 +68,6 @@ module.exports = generators.Base.extend({
 
     /* Let's get a list of our base files and type specific files.
      */
-
     this.addon.files.base = read(this.templatePath() + '/base');
     this.addon.files[this.addon.type] = read(this.templatePath() + '/' + this.addon.type + '/src');
 
