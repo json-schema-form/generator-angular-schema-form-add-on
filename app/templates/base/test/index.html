@@ -21,6 +21,8 @@
 
         $scope.model = {};
 
+        $scope.debug = {schema: $scope.schema, form: $scope.form};
+
       });
 
     </script>
@@ -45,13 +47,13 @@
             <div class="row">
               <div class="col-md-12">
                 <h4>Form</h4>
-                <pre>{{form | json}}</pre>
+                <pre>{{debug.form | json}}</pre>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
                 <h4>Schema</h4>
-                <pre>{{schema | json}}</pre>
+                <pre>{{debug.schema | json}}</pre>
               </div>
             </div>
           </div>

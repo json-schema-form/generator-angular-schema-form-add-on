@@ -71,12 +71,6 @@ module.exports = generators.Base.extend({
     this.addon.files.base = read(this.templatePath() + '/base');
     this.addon.files[this.addon.type] = read(this.templatePath() + '/' + this.addon.type + '/src');
 
-    if (this.appname !== this.addon.name) {
-      /* If user used a name that's not our appname (current directory name).
-       * Should we rename current dir or create a new directory?
-       */
-    }
-
     done();
   },
 

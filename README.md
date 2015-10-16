@@ -9,6 +9,10 @@ Install
 
 Usage
 ---------------
+First create a directory
+
+`mkdir your-add-on && cd your-add-on`
+
 Run `yo` and select **Angular Schema Form Add On**
 
 OR
