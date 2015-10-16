@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name",
+      "description": "Name or alias",
+      "maxLength": 10,
+      "minLength": 2,
+      "required": true
+    }
+  }
+}
