@@ -8,7 +8,7 @@
   "keywords": [
     "yeoman-generator"
   ],
-  "repository": "textalk/generator-angular",
+  "repository": "textalk/generator-angular-schema-form-add-on",
   "dependencies": {
     "camelcase": "^1.2.1",
     "chalk": "^1.1.1",
