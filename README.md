@@ -1,2 +1,2 @@
-Angular Schema Form Generator
-=============================
+Angular Schema Form Add-on Generator
+====================================

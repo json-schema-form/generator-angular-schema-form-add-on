@@ -39,7 +39,7 @@ module.exports = generators.Base.extend({
       type: 'list',
       name: 'type',
       message: 'What kind of form type do you want?',
-      choices: ['Input' /*, 'Radio', 'Checkbox', 'Array', 'Empty'*/ ],
+      choices: ['Input' /*, 'Radio', 'Checkbox', 'Array'*/, 'Empty' ],
       default: 'Input'
     }], function(answers) {
 
@@ -89,8 +89,14 @@ module.exports = generators.Base.extend({
     var form = this.fs.read(this.templatePath(this.addon.type + '/form.json'));
 
     this.addon.files.base.forEach(function(file) {
+      // what to inject in the test controller
+      var testModule = ['schemaForm'];
       var dest = file.replace('_', '.')
                      .replace('module.js', this.addon.paramName + '.js');
+
+      if (this.addon.type !== 'empty') {
+        testModule.push(this.addon.directive);
+      }
 
       /* Base files */
       this.fs.copyTpl(
@@ -99,6 +105,7 @@ module.exports = generators.Base.extend({
         {
           name: this.addon.name,
           directive: this.addon.directive,
+          testModuleInj: JSON.stringify(testModule),
           typeName: this.addon.typeName,
           paramName: this.addon.paramName,
           schema: schema,
@@ -152,7 +159,7 @@ module.exports = generators.Base.extend({
       'bootstrap'
     ];
 
-    console.log(chalk.white('\nJust running ' + chalk.green.bold('npm install') + ' and ' + chalk.green.bold('bower install') + ' for you!\n'));
+    console.log(chalk.white('\nAlmost done! Just running ' + chalk.green.bold('npm install') + ' and ' + chalk.green.bold('bower install') + ' for you!\n'));
 
     this.npmInstall(npmDevDeps, { 'saveDev': true });
     this.bowerInstall(bowerDevDeps, { 'saveDev': true });

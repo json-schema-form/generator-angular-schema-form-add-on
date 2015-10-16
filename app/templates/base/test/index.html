@@ -13,7 +13,7 @@
 
     <script>
 
-      angular.module('test', ['schemaForm', '<%= directive %>']).controller('FormController', function($scope) {
+      angular.module('test', <%- testModuleInj %>).controller('FormController', function($scope) {
 
         $scope.schema = <%- schema -%>
 
