@@ -1,6 +1,6 @@
 [
   {
-    "type": "<%= typeName %>",
+    "type": "",
     "key": "name",
     "myOwnFormOption": "Hello world!"
   }

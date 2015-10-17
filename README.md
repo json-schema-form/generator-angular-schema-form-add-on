@@ -5,7 +5,7 @@ A Yeoman generator to scaffold a [Angular Schema Form](http://schemaform.io/) Ad
 
 Install
 ---------------
-`npm install -g yo generator-angular-schema-form-add-on`
+`npm install -g yo gulp bower generator-angular-schema-form-add-on`
 
 Usage
 ---------------
