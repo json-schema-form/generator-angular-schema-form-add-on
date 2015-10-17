@@ -81,6 +81,12 @@ module.exports = generators.Base.extend({
     var schema = this.fs.read(this.templatePath(this.addon.type + '/schema.json'));
     var form = this.fs.read(this.templatePath(this.addon.type + '/form.json'));
 
+    /* Just a fast and easy fix.. because current version isn't working */
+    form = JSON.parse(form);
+    if (form[0].hasOwnProperty('type')) {
+      form[0].type = this.addon.typeName;
+    }
+
     this.addon.files.base.forEach(function(file) {
       // what to inject in the test controller
       var testModule = ['schemaForm'];
@@ -102,7 +108,7 @@ module.exports = generators.Base.extend({
           typeName: this.addon.typeName,
           paramName: this.addon.paramName,
           schema: schema,
-          form: form
+          form: JSON.stringify(form)
         }
       );
     }.bind(this));
@@ -126,10 +132,6 @@ module.exports = generators.Base.extend({
     }.bind(this));
 
     done();
-
-  },
-
-  conflicts: function() {
 
   },
 

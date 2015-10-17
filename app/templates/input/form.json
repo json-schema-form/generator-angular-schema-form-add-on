@@ -1,7 +1,7 @@
 [
   {
-    "type": "myaddon",
+    "type": "",
     "key": "name",
-    "myOwnProperty": "Hello world!"
+    "myOwnFormOption": "Hello world!"
   }
 ]

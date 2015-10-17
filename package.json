@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-schema-form-add-on",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A Yeoman generator for Angular Schema Form Add-Ons.",
   "files": [
     "app"
