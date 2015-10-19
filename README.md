@@ -19,6 +19,8 @@ OR
 
 Run `yo angular-schema-form-add-on`
 
+When yeoman is done, gulp default will minify and start a livereload server for you to test the add-on.
+
 Under development
 -----------------
 Right now we have support for one starting form type **input**.. You can also choose **empty** which doesnt give you any example, just all the dependencies you need
