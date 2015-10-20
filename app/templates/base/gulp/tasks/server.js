@@ -3,7 +3,7 @@ var connect = require('gulp-connect');
 
 gulp.task('connect', function() {
   connect.server({
-    root: ['test', './'],
+    root: ['demo', './'],
     livereload: true
   });
 });
@@ -13,5 +13,5 @@ gulp.task('reload', ['minify'], function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['./src/**', './test/**'], ['reload']);
+  gulp.watch(['./src/**', './demo/**'], ['reload']);
 });
