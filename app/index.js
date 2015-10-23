@@ -41,12 +41,19 @@ module.exports = generators.Base.extend({
       message: 'What kind of form type do you want?',
       choices: ['Input' /*, 'Radio', 'Checkbox', 'Array'*/, 'Empty' ],
       default: 'Input'
+    },
+    {
+      type    : 'input',
+      name    : 'username',
+      message : 'What\'s your Github username?',
+      store   : true
     }], function(answers) {
 
       /* Nice, we now have the answers. let's put it in our config.
        */
       this.addon.name = answers.name;
       this.addon.type = answers.type;
+      this.addon.username = answers.username;
 
       /* Changing cases
        */
@@ -110,7 +117,8 @@ module.exports = generators.Base.extend({
           typeName: this.addon.typeName,
           paramName: this.addon.paramName,
           schema: schema,
-          form: JSON.stringify(form)
+          form: JSON.stringify(form),
+          username: this.addon.username
         }
       );
     }.bind(this));

@@ -1,8 +1,8 @@
 {
   "name": "<%= paramName %>",
   "version": "1.0.0",
-  "description": "Angular Schema Form Add-On.",
-  "author": "",
+  "description": "<%= name %> add-on for Angular Schema Form.",
+  "author": "<%= username %>",
   "license": "MIT",
   "devDependencies": {}
 }
