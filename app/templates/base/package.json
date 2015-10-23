@@ -1,11 +1,7 @@
 {
   "name": "<%= paramName %>",
   "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
-  "directories": {
-    "test": "test"
-  },
+  "description": "Angular Schema Form Add-On.",
   "author": "",
   "license": "MIT",
   "devDependencies": {}
