@@ -1,4 +1,4 @@
-angular.module('<%= directive %>', [
+angular.module('<%= module %>', [
   'schemaForm',
   'templates'
 ]).config(function(schemaFormDecoratorsProvider, sfBuilderProvider) {

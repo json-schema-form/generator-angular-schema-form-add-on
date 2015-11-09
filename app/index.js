@@ -43,6 +43,12 @@ module.exports = generators.Base.extend({
       default: 'Input'
     },
     {
+      type: 'confirm',
+      name: 'useDirective',
+      message: 'Do you want a directive added to your addon?',
+      default: true
+    },
+    {
       type    : 'input',
       name    : 'username',
       message : 'What\'s your Github username?',
@@ -53,12 +59,13 @@ module.exports = generators.Base.extend({
        */
       this.addon.name = answers.name;
       this.addon.type = answers.type;
+      this.addon.useDirective = answers.useDirective;
       this.addon.username = answers.username;
 
       /* Changing cases
        */
       this.addon.type = this.addon.type.toLowerCase(); // ex. Input > input
-      this.addon.directive = camelcase(this.addon.name); // ex. add on > addOn
+      this.addon.module = camelcase(this.addon.name); // ex. add on > addOn
       this.addon.typeName = this.addon.name.replace(/ /g, ''); // ex. add on > addon
       this.addon.paramName = this.addon.name.replace(/ /g, '-'); // ex. add on > add-on
 
@@ -99,11 +106,12 @@ module.exports = generators.Base.extend({
       /* What to inject in the test controller
        */
       var testModule = ['schemaForm'];
-      var dest = file.replace('_', '.')
-                     .replace('module.js', this.addon.paramName + '.js');
+      var sources = [];
+      var dest = file.replace('_', '.');
 
       if (this.addon.type !== 'empty') {
-        testModule.push(this.addon.directive);
+        testModule.push(this.addon.module);
+        sources.push('src/module.js');
       }
 
       /* Base files */
@@ -112,13 +120,14 @@ module.exports = generators.Base.extend({
         this.destinationPath('./') + dest,
         {
           name: this.addon.name,
-          directive: this.addon.directive,
+          module: this.addon.module,
           testModuleInj: JSON.stringify(testModule),
           typeName: this.addon.typeName,
           paramName: this.addon.paramName,
           schema: schema,
           form: JSON.stringify(form),
-          username: this.addon.username
+          username: this.addon.username,
+          sources: JSON.stringify(sources)
         }
       );
     }.bind(this));
@@ -126,15 +135,14 @@ module.exports = generators.Base.extend({
     /* Type files */
     this.addon.files[this.addon.type].forEach(function(file) {
       var dest = file.replace('_', '.')
-                     .replace('template.html', this.addon.paramName + '.html')
-                     .replace('module.js', this.addon.paramName + '.js');
+                     .replace('template.html', this.addon.paramName + '.html');
 
       this.fs.copyTpl(
         this.templatePath(this.templatePath(this.addon.type + '/src/') + file),
         this.destinationPath('./src/') + dest,
         {
           name: this.addon.name,
-          directive: this.addon.directive,
+          module: this.addon.module,
           typeName: this.addon.typeName,
           paramName: this.addon.paramName
         }
