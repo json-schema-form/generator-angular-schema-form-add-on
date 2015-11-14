@@ -5,8 +5,11 @@
   <!-- Create your own form options -->
 
   <label>{{form.title}}</label>
-
+  <% if (directive) { %>
+  <update-on-blur sf-field-model schema-validate="form"></update-on-blur>
+  <% } else { %>
   <input sf-field-model schema-validate="form" type="text" class="form-control">
+  <% } %>
   <!-- sf-field-model let's the ngModel builder know that you want a ng-model that matches against the form key here -->
   <!-- schema-validate="form" validates the form against the schema -->
 
