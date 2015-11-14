@@ -66,7 +66,7 @@ module.exports = generators.Base.extend({
        */
       this.addon.type = this.addon.type.toLowerCase(); // ex. Input > input
       this.addon.module = camelcase(this.addon.name); // ex. add on > addOn
-      this.addon.typeName = this.addon.name.replace(/ /g, ''); // ex. add on > addon
+      this.addon.formType = this.addon.name.replace(/ /g, ''); // ex. add on > addon
       this.addon.paramName = this.addon.name.replace(/ /g, '-'); // ex. add on > add-on
 
       /* We are done here... Let's continue
@@ -99,7 +99,7 @@ module.exports = generators.Base.extend({
      */
     form = JSON.parse(form);
     if (form[0].hasOwnProperty('type')) {
-      form[0].type = this.addon.typeName;
+      form[0].type = this.addon.formType;
     }
 
     this.addon.files.base.forEach(function(file) {
@@ -122,7 +122,7 @@ module.exports = generators.Base.extend({
           name: this.addon.name,
           module: this.addon.module,
           testModuleInj: JSON.stringify(testModule),
-          typeName: this.addon.typeName,
+          formType: this.addon.formType,
           paramName: this.addon.paramName,
           schema: schema,
           form: JSON.stringify(form),
@@ -143,7 +143,7 @@ module.exports = generators.Base.extend({
         {
           name: this.addon.name,
           module: this.addon.module,
-          typeName: this.addon.typeName,
+          formType: this.addon.formType,
           paramName: this.addon.paramName,
           directive: this.addon.useDirective
         }
