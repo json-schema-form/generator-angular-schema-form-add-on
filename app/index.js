@@ -144,7 +144,8 @@ module.exports = generators.Base.extend({
           name: this.addon.name,
           module: this.addon.module,
           typeName: this.addon.typeName,
-          paramName: this.addon.paramName
+          paramName: this.addon.paramName,
+          directive: this.addon.useDirective
         }
       );
     }.bind(this));
