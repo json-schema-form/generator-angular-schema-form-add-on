@@ -7,6 +7,7 @@
   <label>{{form.title}}</label>
   <% if (directive) { %>
   <update-on-blur sf-field-model schema-validate="form"></update-on-blur>
+  <em>Blur this field to update the model.</em>
   <% } else { %>
   <input sf-field-model schema-validate="form" type="text" class="form-control">
   <% } %>

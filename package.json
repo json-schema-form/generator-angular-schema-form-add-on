@@ -2,20 +2,36 @@
   "name": "generator-angular-schema-form-add-on",
   "version": "0.1.3",
   "description": "A Yeoman generator for Angular Schema Form Add-Ons.",
+  "main": "app/index.js",
   "files": [
     "app"
   ],
   "keywords": [
     "yeoman-generator"
   ],
-  "repository": "textalk/generator-angular-schema-form-add-on",
+  "scripts": {
+    "compile": "babel index.js --out-file app/index.js --source-maps",
+    "watch": "babel index.js --watch --out-file app/index.js --source-maps",
+    "prepublish": "npm run compile"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "repository": "json-schema-form/generator-angular-schema-form-add-on",
   "dependencies": {
+    "babel-polyfill": "^6.5.0",
     "camelcase": "^1.2.1",
     "chalk": "^1.1.1",
     "fs-promise": "^0.3.1",
     "fs-readdir-recursive": "^0.1.2",
     "q": "^1.4.1",
-    "yeoman-generator": "^0.20.3"
+    "yeoman-generator": "^0.20.3",
+    "yosay": "^1.1.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.5.1"
+  }
 }
