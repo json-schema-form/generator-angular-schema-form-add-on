@@ -79,6 +79,10 @@ class asfAddOnGenerator extends Base {
     this.addon.files.base = read(`${this.templatePath()}/base`);
     this.addon.files[this.addon.type] = read(`${this.templatePath()}/${this.addon.type}/src`);
 
+    if (!this.addon.useDirective) {
+      this.addon.files[this.addon.type] = this.addon.files[this.addon.type].filter(dir => !dir.includes('directives'))
+    }
+
   }
 
   writing() {
@@ -93,20 +97,18 @@ class asfAddOnGenerator extends Base {
       form[0].type = this.addon.formType;
     }
 
+    const sources = [];
+    const testModule = ['schemaForm'];
+
+    if (this.addon.type !== 'empty') {
+      testModule.push(this.addon.module);
+      sources.push('src/module.js', 'src/**/*.js');
+    }
+
     this.addon.files.base.forEach((file) => {
       /* What to inject in the test controller
        */
-      const testModule = ['schemaForm'];
-      const sources = [];
       const dest = file.replace('_', '.');
-
-      if (this.addon.type !== 'empty') {
-        testModule.push(this.addon.module);
-
-        /* This needs to reflect files inside the chosen types folder.
-         */
-        sources.push('src/module.js');
-      }
 
       /* Base files */
       this.fs.copyTpl(
@@ -129,7 +131,8 @@ class asfAddOnGenerator extends Base {
     /* Type files */
     this.addon.files[this.addon.type].forEach((file) => {
       const dest = file.replace('_', '.')
-                       .replace('template.html', `${this.addon.paramName}.html`);
+                       .replace('template.html', `${this.addon.paramName}.html`)
+                       .replace('template.js', `${this.addon.paramName}.js`);
 
       this.fs.copyTpl(
         this.templatePath(this.templatePath(`${this.addon.type}/src/`) + file),

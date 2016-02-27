@@ -33,10 +33,10 @@ gulp.task('minify', function () {
     })),
     gulp.src(files)
   )
-  .pipe(concat('asf-addon.js'))
+  .pipe(concat('<%= paramName %>.js'))
   .pipe(gulp.dest('./dist'))
   .pipe(uglify())
-  .pipe(rename('asf-addon.min.js'))
+  .pipe(rename('<%= paramName %>.min.js'))
   .pipe(gulp.dest('./dist'));
 
   return stream;

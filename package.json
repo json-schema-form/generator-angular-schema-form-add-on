@@ -22,6 +22,7 @@
   "repository": "json-schema-form/generator-angular-schema-form-add-on",
   "dependencies": {
     "babel-polyfill": "^6.5.0",
+    "babel-preset-es2015": "^6.5.0",
     "camelcase": "^1.2.1",
     "chalk": "^1.1.1",
     "fs-promise": "^0.3.1",
