@@ -21,7 +21,7 @@
 
         $scope.model = {};
 
-        $scope.debug = {schema: $scope.schema, form: $scope.form};
+        $scope.debug = {schema: angular.copy($scope.schema), form: angular.copy($scope.form)};
 
       });
 

@@ -2,6 +2,18 @@
   "name": "<%= paramName %>",
   "version": "1.0.0",
   "license": "MIT",
+  "author": "<%= username %>",
+  "main": [
+    "dist/<%= paramName %>.min.js"
+  ],
+  "keywords": [
+    "angular-schema-form",
+    "schema-form",
+    "form",
+    "json",
+    "json-schema",
+    "schema"
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
